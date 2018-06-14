@@ -1,0 +1,6 @@
+ja:
+  activemodel:
+    attributes:
+      sessions/new_form:
+        uid: ユーザーID
+        password: パスワード
