@@ -1,7 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+::ActiveRecord::Base.transaction do
+  user = ::User.create!(uid: 'test', password: 'password', password_confirmation: 'password')
+
+  user.tweets << ::Tweet.new(text: 'Hello my-tweet')
+  user.tweets << ::Tweet.new(text: 'My goal is Twitter!!', url: 'https://twitter.com')
+
+  app = ::Doorkeeper::Application.new(name: 'MyTweet App', redirect_uri: 'http://localhost:3000/oauth/callback')
+  app.uid = 'uid'
+  app.secret = 'secret'
+  app.save!
+end
