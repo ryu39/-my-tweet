@@ -4,3 +4,7 @@ ja:
       sessions/new_form:
         uid: ユーザーID
         password: パスワード
+    errors:
+      models:
+        sessions/new_form:
+          authentication_failed: ユーザーID、もしくはパスワードが正しくありません。
