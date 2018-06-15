@@ -1,2 +1,16 @@
-<h1>Tweets#index</h1>
-<p>Find me in app/views/tweets/index.html.erb</p>
+<h1>ツイート一覧</h1>
+
+<% if @tweets.empty? %>
+  <p>ツイートはありません。</p>
+<% else %>
+  <ul>
+    <% @tweets.each do |tweet| %>
+      <li>
+        <%= tweet.text %>
+        <% if tweet.url %>
+          : <%= link_to nil, tweet.url, target: '_blank' %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
