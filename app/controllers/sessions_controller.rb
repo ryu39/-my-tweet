@@ -21,7 +21,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    # TODO
+    reset_session
+    redirect_to root_path
   end
 
   private
