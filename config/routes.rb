@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
 
   resource :session, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create]
   resources :tweets, only: [:index]
   namespace :api do
     resources :tweets, only: [:index, :show, :create, :update, :destroy]
