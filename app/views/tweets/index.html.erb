@@ -1,6 +1,9 @@
 <h1>ツイート一覧</h1>
 
 <%= link_to 'ログアウト', session_path, method: :delete %>
+<% if admin? %>
+  <%= link_to 'ユーザー登録', new_user_path %>
+<% end %>
 
 <% if @tweets.empty? %>
   <p>ツイートはありません。</p>
